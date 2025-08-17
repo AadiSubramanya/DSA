@@ -15,10 +15,9 @@ class Solution {
         }
     }
 
-    // Convert result array to string
     StringBuilder sb = new StringBuilder();
     for (int num : result) {
-        if (!(sb.length() == 0 && num == 0)) { // skip leading zeros
+        if (!(sb.length() == 0 && num == 0)) {
             sb.append(num);
         }
     }
