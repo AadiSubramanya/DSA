@@ -1,12 +1,13 @@
 class Solution {
     public int missingNumber(int[] nums) {
-        int k;
-        Arrays.sort(nums);
+        int actualsum=0, totalsum=0;
 
-        for (k = 0; k<nums.length; k++){
-            if (nums[k] != k) break;
+        for(int i=0;i<=nums.length;i++){
+            totalsum+=i;
+            if (i < nums.length){
+                actualsum+=nums[i];
+            }
         }
-
-        return k;
+        return totalsum-actualsum;
     }
 }
