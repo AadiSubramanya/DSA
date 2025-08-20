@@ -5,8 +5,10 @@ class Solution {
             if (s.charAt(i) != ' '){
                 c++;
             }
-            if (s.charAt(i) == ' ' && c > 0){
-                break;
+            else{
+                if(c>0){
+                    break;
+                }
             }
         }
         return c;
