@@ -1,12 +1,12 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        if (nums.length == 1){ return;}
-
         int backshots = nums.length-1, temp;
         while (nums[backshots] == 0){
-            backshots--;
             if (backshots == 0){
                 return;
+            }
+            else{
+                backshots--;
             }
         }
         for (int i = backshots-1; i>=0; i--){
