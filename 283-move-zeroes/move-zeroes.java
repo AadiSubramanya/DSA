@@ -3,8 +3,11 @@ class Solution {
         if (nums.length == 1){ return;}
 
         int backshots = nums.length-1, temp;
-        while (nums[backshots] == 0 && backshots>0){
+        while (nums[backshots] == 0){
             backshots--;
+            if (backshots == 0){
+                return;
+            }
         }
         for (int i = backshots-1; i>=0; i--){
             if (nums[i] == 0){
