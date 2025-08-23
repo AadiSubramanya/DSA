@@ -8,9 +8,9 @@ class Solution {
 
     public static void rev(int[] nums, int start, int end){
         while (start < end){
-            nums[start] ^= nums[end];
-            nums[end] ^= nums[start];
-            nums[start] ^= nums[end];
+            nums[start] = nums[start] + nums[end];
+            nums[end] = nums[start] - nums[end];
+            nums[start] = nums[start] - nums[end];
             start++;
             end--;
         }
