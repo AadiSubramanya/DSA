@@ -6,19 +6,12 @@
  *     struct TreeNode *right;
  * };
  */
-struct TreeNode* bst(int *nums, int beg, int end){
-    if(end < beg)
-        return NULL ;
-    int mid = (beg + end)/2 ;
+struct TreeNode* sortedArrayToBST(int* nums, int numsSize) {
+    if (numsSize <= 0) return NULL;
+    int mid = numsSize/2;
     struct TreeNode* root = (struct TreeNode*)malloc(sizeof(struct TreeNode));
     root->val = nums[mid];
-    root->left = bst(nums, beg, mid-1);
-    root->right = bst(nums, mid+1, end);
+    root->left = sortedArrayToBST(nums, mid);
+    root->right = sortedArrayToBST(nums+mid+1, numsSize-mid-1);
     return root;
-}
-struct TreeNode* sortedArrayToBST(int* nums, int numsSize){
-    if(numsSize <= 0)
-        return NULL;
-    else
-        return bst(nums, 0, numsSize-1);
 }
