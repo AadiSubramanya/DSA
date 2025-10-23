@@ -7,11 +7,15 @@
  * };
  */
 struct TreeNode* sortedArrayToBST(int* nums, int numsSize) {
-    if (numsSize <= 0) return NULL;
-    int mid = numsSize/2;
-    struct TreeNode* root = (struct TreeNode*)malloc(sizeof(struct TreeNode));
-    root->val = nums[mid];
-    root->left = sortedArrayToBST(nums, mid);
-    root->right = sortedArrayToBST(nums+mid+1, numsSize-mid-1);
-    return root;
+    if(numsSize<=0){
+        return NULL;
+    }
+    int index=numsSize/2;
+    struct TreeNode * left=sortedArrayToBST(nums,(numsSize/2));
+    struct TreeNode * right=sortedArrayToBST(nums+(numsSize/2)+1,numsSize-index-1);
+    struct TreeNode * newnode=(struct TreeNode *)malloc(sizeof(struct TreeNode));
+    newnode->val=nums[index];
+    newnode->left=left;
+    newnode->right=right;
+    return newnode;
 }
